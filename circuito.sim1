@@ -8,10 +8,16 @@
 
 <item itemtype="AudioOut" CircId="AudioOut-46" mainComp="false" Show_id="false" Show_Val="false" Pos="-252,40" rotation="180" hflip="1" vflip="1" label="AudioOut-46" idLabPos="-20,-36" labelrot="0" valLabPos="-16,20" valLabRot="0" Buzzer="false" Impedance="8 Ω" Frequency="1 kHz" />
 
-<item itemtype="Connector" uid="Connector-1" startpinid="Dht22-15-inPin" endpinid="Uno-1-8" pointList="-288,-68,-328,-68,-328,0,-164,0" />
+<item itemtype="Ground" CircId="Ground-48" mainComp="false" Show_id="false" Show_Val="false" Pos="-396,-16" rotation="90" hflip="1" vflip="1" label="Ground-48" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Switch" CircId="Switch-49" mainComp="false" Show_id="false" Show_Val="false" Pos="-348,-16" rotation="0" hflip="1" vflip="1" label="Switch-49" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
 
 <item itemtype="Connector" uid="Connector-4" startpinid="AudioOut-46-lPin" endpinid="Uno-1-9" pointList="-236,48,-196,48,-196,8,-164,8" />
 
 <item itemtype="Connector" uid="Connector-5" startpinid="AudioOut-46-rPin" endpinid="Uno-1-GND2" pointList="-236,40,-180,40,-180,48,-164,48" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="Ground-48-Gnd" endpinid="Switch-49-pinP0" pointList="-380,-16,-364,-16" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Dht22-15-inPin" endpinid="Uno-1-5" pointList="-288,-68,-312,-68,-312,-32,-164,-32" />
 
 </circuit>
