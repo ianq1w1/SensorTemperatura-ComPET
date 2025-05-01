@@ -11,7 +11,7 @@ volatile byte Proccess_count = 0;
 
 float tempMin = 10.0;
 float tempMax = 5.0;
-float umidMin = 12.0;
+float umidMin = 70.0;
 float umidMax = 90;
 
 float temperatura = 0;
