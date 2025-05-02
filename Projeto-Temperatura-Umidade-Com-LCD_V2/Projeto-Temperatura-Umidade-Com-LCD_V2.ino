@@ -1,4 +1,5 @@
 #include <DHT.h>
+#include <arduino-timer.h>
 #include <LiquidCrystal.h>
 #include <TimerOne.h>
 
@@ -33,6 +34,18 @@ bool acimaUmid = false;
 #define LED_ABAIXO 9
 #define LED_ACIMA 10
 #define CHAVE_PIN 2
+
+auto timer = timer_create_default();
+ String Mensagem="";
+ String TokenInicial="<";
+ String TokenFinal=">";
+ String TokenFinalizadoralor=";";
+ String IdX="Temperatura:";
+ String IdY="Umidade:";
+ String ValorX;
+ String ValorY;
+ 
+
 
 void handlerflag(){
   startSystem = !startSystem;  
@@ -77,11 +90,13 @@ void Proccess0(){
       lcd.print(temperatura,1);
       lcd.print((char)223); //Simbolo do celsius
       lcd.print("C ");
+      ValorX = String(temperatura);
 
       lcd.setCursor(0,1);
       lcd.print("U:");
       lcd.print(umidade,1);
       lcd.print("% ");
+      ValorY = String(umidade);
   }
 }
 
@@ -152,6 +167,20 @@ void Proccess1(){
   }
 }
 
+void Proccess2(){
+  Mensagem="";
+  Mensagem.concat(TokenInicial);
+  Mensagem.concat(IdX);
+  Mensagem.concat(ValorX);
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat(IdY);
+  Mensagem.concat(ValorY);
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat(TokenFinal);
+
+  Serial.println(Mensagem);
+}
+
 void loop() {
   //delay(200);
   if(startSystem == true){
@@ -161,6 +190,8 @@ void loop() {
         case 0: Proccess0();
                 break;
         case 1: Proccess1();
+                break;
+        case 2: Proccess2();
                 break;
         default: Proccess_count = 0;
                  break;
