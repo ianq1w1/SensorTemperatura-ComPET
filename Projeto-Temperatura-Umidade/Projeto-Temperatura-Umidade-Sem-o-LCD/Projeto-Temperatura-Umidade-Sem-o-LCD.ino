@@ -14,12 +14,13 @@ volatile byte Proccess_count = 0;
 float tempMin = 10.0;
 float tempMax = 70.0;
 float umidMin = 20.0;
-float umidMax = 90;
+float umidMax = 80;
 
 float temperatura = 0;
 float umidade = 0;
-bool alertaTemp;
-bool alertaUmid;
+
+bool tempAlerta = false;
+bool umidAlerta = false;
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -65,37 +66,39 @@ void Proccess0(){
 }
 
 void Proccess1(){
+  
 
-if((millis() - tempoAgora) > 3000){
-  if(temperatura < tempMin || temperatura > tempMax){
-      if((millis() - tempoAgora) > 2000){
-        Serial.println("Limite de temperatura excedido");
-        tempoAgora = millis();
-        ledState = HIGH;
-        digitalWrite(ledPin, ledState);
+  if ((millis() - tempoAgora) > 3000) {
+    tempoAgora = millis(); // Atualiza tempo só uma vez
+
+    if (temperatura < tempMin || temperatura > tempMax) {
+      tempAlerta = true;
+    }
+
+    if (umidade < umidMin || umidade > umidMax) {
+      umidAlerta = true;
+    }
+
+    if (tempAlerta || umidAlerta) {
+      Serial.println("Alerta de limite excedido:");
+      if (tempAlerta) {
+        Serial.println("- Temperatura fora dos limites!");
       }
-  }else{
-    digitalWrite(ledPin, LOW);
-  }
-}
-
-if((millis() - tempoAgora) > 3000){
-  if(umidade < umidMin || umidade > umidMax){
-      if((millis() - tempoAgora) > 2000){
-        Serial.println("Limite de Umidade excedido");
-        tempoAgora = millis();
-        ledState = HIGH;
-        digitalWrite(ledPin, ledState);
+      if (umidAlerta) {
+        Serial.println("- Umidade fora dos limites!");
       }
-  }else{
-    digitalWrite(ledPin, LOW);
-  }   
-  } 
+      ledState = HIGH;
+      digitalWrite(ledPin, ledState);
+    } else {
+      // Se estiver tudo OK, apaga o LED
+      ledState = LOW;
+      digitalWrite(ledPin, ledState);
+    }
 
-
-  if (isnan(temperatura) || isnan(umidade)) {
-    Serial.println("Falha na leitura do sensor DHT!");
-    return;
+    // Validação do sensor
+    if (isnan(temperatura) || isnan(umidade)) {
+      Serial.println("Falha na leitura do sensor DHT!");
+    }
   }
 }
 
