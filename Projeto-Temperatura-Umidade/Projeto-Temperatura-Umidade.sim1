@@ -5,7 +5,7 @@
 <item itemtype="SerialPort" CircId="SerialPort-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-332" rotation="0" hflip="1" vflip="1" label="SerialPort-9" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt7" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Subcircuit" CircId="Mega-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-180,-288" rotation="0" hflip="1" vflip="1" label="Mega-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Sem-o-LCD/Projeto-Temperatura-Umidade-Sem-o-LCD.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Sem-o-LCD/Projeto-Temperatura-Umidade-Sem-o-LCD.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
 
 <item itemtype="SerialPort" CircId="SerialPort-29" mainComp="false" Show_id="false" Show_Val="false" Pos="72,-300" rotation="0" hflip="1" vflip="1" label="SerialPort-29" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />

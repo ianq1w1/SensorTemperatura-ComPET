@@ -27,7 +27,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 unsigned long tempoAgora = 0;
 unsigned long sensorTempoAgora = 0;
-bool ledState = LOW;
+//bool ledState = LOW;
  
 
 //unsigned long tempoAntes = 0;
@@ -73,10 +73,14 @@ void Proccess1(){
 
     if (temperatura < tempMin || temperatura > tempMax) {
       tempAlerta = true;
+    }else{
+     tempAlerta = false; 
     }
 
     if (umidade < umidMin || umidade > umidMax) {
       umidAlerta = true;
+    }else{
+      umidAlerta = false;
     }
 
     if (tempAlerta || umidAlerta) {
@@ -87,12 +91,12 @@ void Proccess1(){
       if (umidAlerta) {
         Serial.println("- Umidade fora dos limites!");
       }
-      ledState = HIGH;
-      digitalWrite(ledPin, ledState);
+      //ledState = HIGH;
+      digitalWrite(ledPin, HIGH);
     } else {
       // Se estiver tudo OK, apaga o LED
-      ledState = LOW;
-      digitalWrite(ledPin, ledState);
+      
+      digitalWrite(ledPin, LOW);
     }
 
     // Validação do sensor
