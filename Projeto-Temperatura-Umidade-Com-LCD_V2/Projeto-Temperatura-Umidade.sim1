@@ -5,7 +5,7 @@
 <item itemtype="SerialPort" CircId="SerialPort-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-332" rotation="0" hflip="1" vflip="1" label="SerialPort-9" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Subcircuit" CircId="Mega-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-180,-288" rotation="0" hflip="1" vflip="1" label="Mega-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Com-LCD_V2.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Com-LCD_V2.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="1" />
 </item>
 
 <item itemtype="Dht22" CircId="Dht22-30" mainComp="false" Show_id="false" Show_Val="false" Pos="100,-36" rotation="0" hflip="1" vflip="1" label="Dht22-30" idLabPos="-28,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" DHT22="DHT22" TempInc="12 °C" HumiInc="5 _%" />
@@ -32,9 +32,9 @@
 
 <item itemtype="Ground" CircId="Ground-60" mainComp="false" Show_id="false" Show_Val="false" Pos="120,-156" rotation="-90" hflip="1" vflip="1" label="Ground-60" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Potentiometer" CircId="Potentiometer-83" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="188,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MIN" idLabPos="-23.4955,-55.661" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="566 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-83" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="188,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MIN" idLabPos="-23.4955,-55.661" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="627 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Potentiometer" CircId="Potentiometer-84" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="72,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MAX" idLabPos="-53.0365,-55.7989" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="800 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-84" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="72,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MAX" idLabPos="-53.0365,-55.7989" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="394 Ω" Slider="false" Scale="1" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-85" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="108,-260" rotation="90" hflip="1" vflip="1" label="Fixed Voltage-85" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
@@ -63,8 +63,6 @@
 <item itemtype="Connector" uid="connector-63" startpinid="Hd44780-2-dataPin4" endpinid="Mega-18-5" pointList="-376,-292,-376,-128,-172,-128" />
 
 <item itemtype="Connector" uid="connector-64" startpinid="Hd44780-2-dataPin5" endpinid="Mega-18-4" pointList="-368,-292,-368,-136,-172,-136" />
-
-<item itemtype="Connector" uid="connector-65" startpinid="Hd44780-2-dataPin6" endpinid="Mega-18-3" pointList="-360,-292,-360,-152,-172,-152,-172,-144" />
 
 <item itemtype="Connector" uid="connector-66" startpinid="SerialPort-9-pin1" endpinid="Mega-18-1" pointList="-188,-324,-208,-324,-208,-160,-172,-160" />
 
@@ -121,5 +119,7 @@
 <item itemtype="Connector" uid="Connector-109" startpinid="Switch-107-pinP0" endpinid="Node-110-1" pointList="-260,-164,-272,-164,-272,-192,-284,-192" />
 
 <item itemtype="Connector" uid="Connector-111" startpinid="Node-110-2" endpinid="Ground-100-Gnd" pointList="-284,-192,-284,-192" />
+
+<item itemtype="Connector" uid="connector-65" startpinid="Hd44780-2-dataPin6" endpinid="Mega-18-3" pointList="-360,-292,-360,-152,-172,-152,-172,-144" />
 
 </circuit>

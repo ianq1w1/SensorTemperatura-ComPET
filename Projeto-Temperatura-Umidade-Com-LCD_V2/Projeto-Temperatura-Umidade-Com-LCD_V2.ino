@@ -119,9 +119,9 @@ void Proccess1(){
          pot2Val = analogRead(pot2);
 
       if(digitalRead(CHAVE_TEMP) == LOW){
-         tempMin = (analogRead(pot2Val)/1023.0) * 120 - 40;
-         tempMax = (analogRead(pot1Val)/1023.0) * 120 - 40; 
-              Serial.println("temperatura minima"); 
+         tempMin = (pot2Val/1023.0) * 120 - 40;
+         tempMax = (pot1Val/1023.0) * 120 - 40; 
+             Serial.println("temperatura minima"); 
              Serial.println(tempMin);
              Serial.println("temperatura maxima");
              Serial.println(tempMax);
@@ -134,9 +134,11 @@ void Proccess1(){
              lcd.print("tempMax:");
              lcd.print(tempMax,1);    
              
-      }else if(digitalRead(CHAVE_UMID) == LOW){
-       umidMin = (analogRead(pot2Val)/1023.0) * 100 - 0; 
-       umidMax = (analogRead(pot1Val)/1023.0) * 100 - 0;
+      }else if (digitalRead(CHAVE_UMID) == LOW) {
+
+        umidMin = (pot2Val/1023) * 100;
+        umidMax = (pot1Val/1023) *100;
+
             Serial.println("umidade minima"); 
              Serial.println(umidMin);
              Serial.println("umidade maxima");
@@ -149,12 +151,13 @@ void Proccess1(){
              lcd.setCursor(0,1);
              lcd.print("umidMax:");
              lcd.print(umidMax,1);
-       
-      }
-   }
+        }
+      } 
+      
+   
 
-  }else{
-      if ((millis() - tempoAgora) > 3000) {
+  }else if ((millis() - tempoAgora) > 3000){
+      
         tempoAgora = millis(); // Atualiza tempo só uma vez
           //VERIFICA TEMPERATURA
           if (temperatura < tempMin) {
@@ -216,8 +219,9 @@ void Proccess1(){
             Serial.println("Falha na leitura do sensor DHT!");
           }
         } 
-  }
+  
 }
+
 
 void Proccess2(){
   Mensagem="";
