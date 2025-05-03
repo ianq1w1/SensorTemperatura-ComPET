@@ -80,7 +80,7 @@ void setup() {
   lcd.clear();
 
   Timer1.initialize(1000000);
-  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, FALLING);
   tempoAgora = millis();
   sensorTempoAgora = millis();
 }
@@ -234,7 +234,7 @@ void Proccess2(){
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat(TokenFinal);
 
-  //Serial.println(Mensagem);
+  Serial.println(Mensagem);
 }
 
 void loop() {
@@ -254,5 +254,5 @@ void loop() {
       }
   }
 
-  //Serial.println("teste");
+
 }
