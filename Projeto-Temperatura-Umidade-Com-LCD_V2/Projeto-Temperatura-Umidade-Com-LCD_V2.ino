@@ -89,9 +89,16 @@ void Proccess0(){
   pot1Val = analogRead(pot1);
   pot2Val = analogRead(pot2);
 
-  Serial.println(pot1Val);
+
+  tempMin = (analogRead(pot1)/1023.0) * 120 - 40;
+  tempMax = (analogRead(pot2)/1023.0) * 120 - 40;
+
+  Serial.println("temperatura min:");
+  Serial.println(tempMin);
   delay(2000);
-  Serial.println(pot2Val);
+  Serial.println("temperatura maxima:");
+  Serial.println(tempMax);  
+  
   
   if((millis() - sensorTempoAgora) > 2000){
      sensorTempoAgora = millis();
