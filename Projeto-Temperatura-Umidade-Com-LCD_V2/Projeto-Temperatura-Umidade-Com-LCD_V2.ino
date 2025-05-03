@@ -3,13 +3,21 @@
 #include <LiquidCrystal.h>
 #include <TimerOne.h>
 
+#define LED_NORMAL 8
+#define LED_ABAIXO 9
+#define LED_ACIMA 10
+#define CHAVE_PIN 2
 #define DHTPIN 6 //Pino conectado ao DHT22
 #define DHTTYPE DHT22
+
 DHT dht(DHTPIN, DHTTYPE);
 
 // LCD: RS, EN, D4, D5, D6, D7
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 7;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+const int pot1 = A10;
+const int pot2 = A8;
 
 volatile bool startSystem = false;
 volatile byte Proccess_count = 0;
@@ -25,15 +33,13 @@ unsigned long sensorTempoAgora = 0;
 float temperatura = 0;
 float umidade = 0;
 
+float pot1Val = 0;
+float pot2Val = 0;
+
 bool abaixoTemp = false;
 bool acimaTemp = false;
 bool abaixoUmid = false;
 bool acimaUmid = false;
-
-#define LED_NORMAL 8
-#define LED_ABAIXO 9
-#define LED_ACIMA 10
-#define CHAVE_PIN 2
 
 auto timer = timer_create_default();
  String Mensagem="";
@@ -45,8 +51,6 @@ auto timer = timer_create_default();
  String ValorX;
  String ValorY;
  
-
-
 void handlerflag(){
   startSystem = !startSystem;  
 }
@@ -81,6 +85,13 @@ void Proccess0(){
  
   temperatura = dht.readTemperature();
   umidade = dht.readHumidity();
+
+  pot1Val = analogRead(pot1);
+  pot2Val = analogRead(pot2);
+
+  Serial.println(pot1Val);
+  delay(2000);
+  Serial.println(pot2Val);
   
   if((millis() - sensorTempoAgora) > 2000){
      sensorTempoAgora = millis();
@@ -101,6 +112,8 @@ void Proccess0(){
 }
 
 void Proccess1(){
+
+ 
   
   if ((millis() - tempoAgora) > 3000) {
     tempoAgora = millis(); // Atualiza tempo só uma vez
@@ -178,7 +191,7 @@ void Proccess2(){
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat(TokenFinal);
 
-  Serial.println(Mensagem);
+  //Serial.println(Mensagem);
 }
 
 void loop() {
