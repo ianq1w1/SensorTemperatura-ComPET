@@ -2,15 +2,15 @@
 
 <item itemtype="Hd44780" CircId="Hd44780-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-448,-300" rotation="0" hflip="1" vflip="1" label="Hd44780" idLabPos="62,-89" labelrot="0" valLabPos="0,0" valLabRot="0" Rows="2" Cols="16" />
 
-<item itemtype="SerialPort" CircId="SerialPort-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-332" rotation="0" hflip="1" vflip="1" label="SerialPort-9" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt7" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
+<item itemtype="SerialPort" CircId="SerialPort-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-332" rotation="0" hflip="1" vflip="1" label="SerialPort-9" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Subcircuit" CircId="Mega-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-180,-288" rotation="0" hflip="1" vflip="1" label="Mega-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Com-LCD_V2.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
 
 <item itemtype="SerialPort" CircId="SerialPort-29" mainComp="false" Show_id="false" Show_Val="false" Pos="72,-300" rotation="0" hflip="1" vflip="1" label="SerialPort-29" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
-<item itemtype="Dht22" CircId="Dht22-30" mainComp="false" Show_id="false" Show_Val="false" Pos="48,-116" rotation="0" hflip="1" vflip="1" label="Dht22-30" idLabPos="-28,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" DHT22="DHT22" TempInc="12 °C" HumiInc="5 _%" />
+<item itemtype="Dht22" CircId="Dht22-30" mainComp="false" Show_id="false" Show_Val="false" Pos="100,-36" rotation="0" hflip="1" vflip="1" label="Dht22-30" idLabPos="-28,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" DHT22="DHT22" TempInc="12 °C" HumiInc="5 _%" />
 
 <item itemtype="Led" CircId="Led-32" mainComp="false" Show_id="false" Show_Val="false" Pos="-320,-28" rotation="90" hflip="1" vflip="1" label="Led-32" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Green" Grounded="false" Threshold="3.5 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
@@ -34,48 +34,98 @@
 
 <item itemtype="Ground" CircId="Ground-60" mainComp="false" Show_id="false" Show_Val="false" Pos="120,-156" rotation="-90" hflip="1" vflip="1" label="Ground-60" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="connector-58" startpinid="Hd44780-2-PinRS" endpinid="Mega-18-12" pointList="-432,-292,-432,-64,-172,-64" />
+<item itemtype="Potentiometer" CircId="Potentiometer-83" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="188,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MIN" idLabPos="-31.2398,-46.626" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="847 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Connector" uid="connector-59" startpinid="Hd44780-2-PinEn" endpinid="Mega-18-11" pointList="-416,-292,-416,-72,-172,-72" />
+<item itemtype="Potentiometer" CircId="Potentiometer-84" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="72,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MAX" idLabPos="-50.4551,-51.9268" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="1000 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Connector" uid="connector-60" startpinid="Hd44780-2-dataPin4" endpinid="Mega-18-5" pointList="-376,-292,-376,-128,-172,-128" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-85" mainComp="false" Show_id="false" Show_Val="false" Pos="108,-260" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-85" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
-<item itemtype="Connector" uid="connector-61" startpinid="Hd44780-2-dataPin5" endpinid="Mega-18-4" pointList="-368,-292,-368,-136,-172,-136" />
+<item itemtype="Ground" CircId="Ground-92" mainComp="false" Show_id="false" Show_Val="false" Pos="28,-236" rotation="0" hflip="1" vflip="1" label="Ground-92" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="connector-62" startpinid="Hd44780-2-dataPin6" endpinid="Mega-18-3" pointList="-360,-292,-360,-144,-172,-144" />
+<item itemtype="Ground" CircId="Ground-94" mainComp="false" Show_id="false" Show_Val="false" Pos="280,-240" rotation="0" hflip="1" vflip="1" label="Ground-94" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="connector-64" startpinid="SerialPort-9-pin1" endpinid="Mega-18-1" pointList="-188,-324,-208,-324,-208,-160,-172,-160" />
+<item itemtype="Probe" CircId="Probe-98" mainComp="false" Show_id="false" Show_Val="true" Pos="152,-208" rotation="-45" hflip="1" vflip="1" label="Probe-98" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-65" startpinid="Mega-18-0" endpinid="SerialPort-9-pin0" pointList="-172,-168,-220,-168,-220,-340,-188,-340" />
+<item itemtype="Probe" CircId="Probe-99" mainComp="false" Show_id="false" Show_Val="true" Pos="8,-224" rotation="-45" hflip="1" vflip="1" label="Probe-99" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
 
-<item itemtype="Connector" uid="connector-66" startpinid="SerialPort-29-pin1" endpinid="Mega-18-18" pointList="32,-292,-140,-292,-140,-216,-172,-216" />
+<item itemtype="Ground" CircId="Ground-100" mainComp="false" Show_id="false" Show_Val="false" Pos="-284,-176" rotation="0" hflip="1" vflip="1" label="Ground-100" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Connector" uid="connector-67" startpinid="SerialPort-29-pin0" endpinid="Mega-18-19" pointList="32,-308,-152,-308,-152,-224,-172,-224" />
+<item itemtype="Switch" CircId="Switch-101" mainComp="false" Show_id="true" Show_Val="false" Pos="-248,-212" rotation="0" hflip="1" vflip="1" label="ADJ-TEMP/HUMID" idLabPos="-53.0811,-26.6504" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="true" Poles="1" />
 
-<item itemtype="Connector" uid="connector-68" startpinid="Dht22-30-inPin" endpinid="Mega-18-6" pointList="12,-120,-172,-120" />
+<item itemtype="Switch" CircId="Switch-107" mainComp="false" Show_id="true" Show_Val="false" Pos="-244,-164" rotation="0" hflip="1" vflip="1" label="MODO-ADJ" idLabPos="-65.6705,0.51614" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
 
-<item itemtype="Connector" uid="connector-69" startpinid="Resistor-55-rPin" endpinid="Led-32-rPin" pointList="-320,0,-320,-12" />
+<item itemtype="Node" CircId="Node-90" mainComp="false" Pos="124,-224" />
 
-<item itemtype="Connector" uid="connector-70" startpinid="Resistor-55-lPin" endpinid="Ground-35-Gnd" pointList="-320,32,-320,44" />
+<item itemtype="Node" CircId="Node-110" mainComp="false" Pos="-284,-192" />
 
-<item itemtype="Connector" uid="connector-71" startpinid="Resistor-56-rPin" endpinid="Led-33-rPin" pointList="-292,0,-292,-12" />
+<item itemtype="Connector" uid="connector-61" startpinid="Hd44780-2-PinRS" endpinid="Mega-18-12" pointList="-432,-292,-432,-64,-172,-64" />
 
-<item itemtype="Connector" uid="connector-72" startpinid="Resistor-56-lPin" endpinid="Ground-36-Gnd" pointList="-292,32,-292,44" />
+<item itemtype="Connector" uid="connector-62" startpinid="Hd44780-2-PinEn" endpinid="Mega-18-11" pointList="-416,-292,-416,-72,-172,-72" />
 
-<item itemtype="Connector" uid="connector-73" startpinid="Led-34-rPin" endpinid="Resistor-57-rPin" pointList="-264,-12,-264,0" />
+<item itemtype="Connector" uid="connector-63" startpinid="Hd44780-2-dataPin4" endpinid="Mega-18-5" pointList="-376,-292,-376,-128,-172,-128" />
 
-<item itemtype="Connector" uid="connector-74" startpinid="Resistor-57-lPin" endpinid="Ground-37-Gnd" pointList="-264,32,-264,44" />
+<item itemtype="Connector" uid="connector-64" startpinid="Hd44780-2-dataPin5" endpinid="Mega-18-4" pointList="-368,-292,-368,-136,-172,-136" />
 
-<item itemtype="Connector" uid="connector-75" startpinid="Led-34-lPin" endpinid="Mega-18-10" pointList="-264,-44,-264,-80,-172,-80" />
+<item itemtype="Connector" uid="connector-65" startpinid="Hd44780-2-dataPin6" endpinid="Mega-18-3" pointList="-360,-292,-360,-152,-172,-152,-172,-144" />
 
-<item itemtype="Connector" uid="connector-76" startpinid="Led-33-lPin" endpinid="Mega-18-9" pointList="-292,-44,-292,-88,-172,-88" />
+<item itemtype="Connector" uid="connector-66" startpinid="SerialPort-9-pin1" endpinid="Mega-18-1" pointList="-188,-324,-208,-324,-208,-160,-172,-160" />
 
-<item itemtype="Connector" uid="connector-77" startpinid="Led-32-lPin" endpinid="Mega-18-8" pointList="-320,-44,-320,-96,-172,-96" />
+<item itemtype="Connector" uid="connector-67" startpinid="Mega-18-0" endpinid="SerialPort-9-pin0" pointList="-172,-168,-220,-168,-220,-340,-188,-340" />
 
-<item itemtype="Connector" uid="Connector-78" startpinid="Hd44780-2-dataPin7" endpinid="Mega-18-7" pointList="-352,-292,-352,-112,-172,-112" />
+<item itemtype="Connector" uid="connector-68" startpinid="SerialPort-29-pin1" endpinid="Mega-18-18" pointList="32,-292,-140,-292,-140,-216,-172,-216" />
 
-<item itemtype="Connector" uid="Connector-79" startpinid="Switch-58-switch0pinN" endpinid="Mega-18-2" pointList="36,-156,36,-152,-172,-152" />
+<item itemtype="Connector" uid="connector-69" startpinid="SerialPort-29-pin0" endpinid="Mega-18-19" pointList="32,-308,-152,-308,-152,-224,-172,-224" />
 
-<item itemtype="Connector" uid="Connector-81" startpinid="Switch-58-pinP0" endpinid="Ground-60-Gnd" pointList="68,-156,104,-156" />
+<item itemtype="Connector" uid="connector-70" startpinid="Dht22-30-inPin" endpinid="Mega-18-6" pointList="64,-40,64,-120,-172,-120" />
+
+<item itemtype="Connector" uid="connector-71" startpinid="Resistor-55-rPin" endpinid="Led-32-rPin" pointList="-320,0,-320,-12" />
+
+<item itemtype="Connector" uid="connector-72" startpinid="Resistor-55-lPin" endpinid="Ground-35-Gnd" pointList="-320,32,-320,44" />
+
+<item itemtype="Connector" uid="connector-73" startpinid="Resistor-56-rPin" endpinid="Led-33-rPin" pointList="-292,0,-292,-12" />
+
+<item itemtype="Connector" uid="connector-74" startpinid="Resistor-56-lPin" endpinid="Ground-36-Gnd" pointList="-292,32,-292,44" />
+
+<item itemtype="Connector" uid="connector-75" startpinid="Led-34-rPin" endpinid="Resistor-57-rPin" pointList="-264,-12,-264,0" />
+
+<item itemtype="Connector" uid="connector-76" startpinid="Resistor-57-lPin" endpinid="Ground-37-Gnd" pointList="-264,32,-264,44" />
+
+<item itemtype="Connector" uid="connector-77" startpinid="Led-34-lPin" endpinid="Mega-18-10" pointList="-264,-44,-264,-80,-172,-80" />
+
+<item itemtype="Connector" uid="connector-78" startpinid="Led-33-lPin" endpinid="Mega-18-9" pointList="-292,-44,-292,-88,-172,-88" />
+
+<item itemtype="Connector" uid="connector-79" startpinid="Led-32-lPin" endpinid="Mega-18-8" pointList="-320,-44,-320,-96,-172,-96" />
+
+<item itemtype="Connector" uid="connector-80" startpinid="Hd44780-2-dataPin7" endpinid="Mega-18-7" pointList="-352,-292,-352,-112,-172,-112" />
+
+<item itemtype="Connector" uid="connector-81" startpinid="Switch-58-switch0pinN" endpinid="Mega-18-2" pointList="36,-156,36,-152,-172,-152" />
+
+<item itemtype="Connector" uid="connector-82" startpinid="Switch-58-pinP0" endpinid="Ground-60-Gnd" pointList="68,-156,104,-156" />
+
+<item itemtype="Connector" uid="Connector-88" startpinid="Fixed Voltage-85-outnod" endpinid="Node-90-0" pointList="124,-260,124,-224" />
+
+<item itemtype="Connector" uid="Connector-89" startpinid="Potentiometer-84-PinB" endpinid="Node-90-1" pointList="88,-224,124,-224" />
+
+<item itemtype="Connector" uid="Connector-91" startpinid="Node-90-2" endpinid="Potentiometer-83-PinA" pointList="124,-224,172,-224" />
+
+<item itemtype="Connector" uid="Connector-93" startpinid="Ground-92-Gnd" endpinid="Potentiometer-84-PinA" pointList="28,-252,56,-252,56,-224" />
+
+<item itemtype="Connector" uid="Connector-95" startpinid="Ground-94-Gnd" endpinid="Potentiometer-83-PinB" pointList="280,-256,212,-256,212,-224,204,-224" />
+
+<item itemtype="Connector" uid="Connector-96" startpinid="Potentiometer-84-PinM" endpinid="Mega-18-A10" pointList="72,-208,-28,-208" />
+
+<item itemtype="Connector" uid="Connector-97" startpinid="Potentiometer-83-PinM" endpinid="Mega-18-A8" pointList="188,-208,188,-192,-28,-192" />
+
+<item itemtype="Connector" uid="Connector-104" startpinid="Switch-101-switch1pinN" endpinid="Mega-18-16" pointList="-232,-220,-192,-220,-192,-200,-172,-200" />
+
+<item itemtype="Connector" uid="Connector-105" startpinid="Switch-101-switch0pinN" endpinid="Mega-18-15" pointList="-232,-212,-232,-192,-172,-192" />
+
+<item itemtype="Connector" uid="Connector-106" startpinid="Switch-101-pinP0" endpinid="Node-110-0" pointList="-264,-212,-284,-212,-284,-192" />
+
+<item itemtype="Connector" uid="Connector-108" startpinid="Switch-107-switch0pinN" endpinid="Mega-18-14" pointList="-228,-164,-228,-184,-172,-184" />
+
+<item itemtype="Connector" uid="Connector-109" startpinid="Switch-107-pinP0" endpinid="Node-110-1" pointList="-260,-164,-272,-164,-272,-192,-284,-192" />
+
+<item itemtype="Connector" uid="Connector-111" startpinid="Node-110-2" endpinid="Ground-100-Gnd" pointList="-284,-192,-284,-192" />
 
 </circuit>
