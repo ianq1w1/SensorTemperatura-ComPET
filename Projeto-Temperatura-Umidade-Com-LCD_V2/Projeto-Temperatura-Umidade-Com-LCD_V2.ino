@@ -7,6 +7,7 @@
 #define LED_ABAIXO 9
 #define LED_ACIMA 10
 #define CHAVE_PIN 2
+#define CHAVE_AJUSTE 14
 #define DHTPIN 6 //Pino conectado ao DHT22
 #define DHTTYPE DHT22
 
@@ -60,13 +61,12 @@ void handler(){
 }
 
 void setup() {
-  //Pinos do LCD
-
-
+  
   pinMode(LED_NORMAL, OUTPUT);
   pinMode(LED_ABAIXO, OUTPUT);
   pinMode(LED_ACIMA, OUTPUT);
   pinMode(CHAVE_PIN, INPUT_PULLUP);
+  pinMode(CHAVE_AJUSTE, INPUT_PULLUP);
   
   Serial.begin(9600);
   dht.begin();
@@ -85,19 +85,6 @@ void Proccess0(){
  
   temperatura = dht.readTemperature();
   umidade = dht.readHumidity();
-
-  pot1Val = analogRead(pot1);
-  pot2Val = analogRead(pot2);
-
-
-  tempMin = (analogRead(pot1)/1023.0) * 120 - 40;
-  tempMax = (analogRead(pot2)/1023.0) * 120 - 40;
-
-  Serial.println("temperatura min:");
-  Serial.println(tempMin);
-  delay(2000);
-  Serial.println("temperatura maxima:");
-  Serial.println(tempMax);  
   
   
   if((millis() - sensorTempoAgora) > 2000){
@@ -120,7 +107,23 @@ void Proccess0(){
 
 void Proccess1(){
 
- 
+   
+  if(digitalRead(CHAVE_AJUSTE) == LOW){
+     pot1Val = analogRead(pot1);
+     pot2Val = analogRead(pot2);
+//adicionar um if para chave se é temperatura ou umidade
+
+     tempMin = (analogRead(pot2)/1023.0) * 120 - 40;
+     tempMax = (analogRead(pot1)/1023.0) * 120 - 40;
+      
+     umidMin = (analogRead(pot2)/1023.0) * 100 - 0; 
+     umidMax = (analogRead(pot1)/1023.0) * 100 - 0;
+
+     Serial.println("temperatura minima"); 
+     Serial.println(tempMin);
+     Serial.println("umidade minima");
+     Serial.println(umidMin);
+  }
   
   if ((millis() - tempoAgora) > 3000) {
     tempoAgora = millis(); // Atualiza tempo só uma vez
