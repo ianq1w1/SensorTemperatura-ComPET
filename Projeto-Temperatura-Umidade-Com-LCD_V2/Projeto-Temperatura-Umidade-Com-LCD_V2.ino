@@ -111,7 +111,6 @@ void Proccess0(){
 
 void Proccess1(){
 
-   
   if(digitalRead(CHAVE_AJUSTE) == LOW){
      pot1Val = analogRead(pot1);
      pot2Val = analogRead(pot2);
@@ -119,11 +118,19 @@ void Proccess1(){
     if(digitalRead(CHAVE_TEMP) == LOW){
        tempMin = (analogRead(pot2)/1023.0) * 120 - 40;
        tempMax = (analogRead(pot1)/1023.0) * 120 - 40; 
-          Serial.println("temperatura minima"); 
+            Serial.println("temperatura minima"); 
            Serial.println(tempMin);
            Serial.println("temperatura maxima");
            Serial.println(tempMax);
-    
+           
+           lcd.clear();
+           lcd.setCursor(0,0);
+           lcd.print("tempMin:");
+           lcd.print(tempMin);
+           lcd.setCursor(0,1);
+           lcd.print("tempMax:");
+           lcd.print(tempMax);    
+           
     }else if(digitalRead(CHAVE_UMID) == LOW){
      umidMin = (analogRead(pot2)/1023.0) * 100 - 0; 
      umidMax = (analogRead(pot1)/1023.0) * 100 - 0;
@@ -131,73 +138,80 @@ void Proccess1(){
            Serial.println(umidMin);
            Serial.println("umidade maxima");
            Serial.println(umidMax);
+
+           lcd.clear();
+           lcd.setCursor(0,0);
+           lcd.print("umidMin:");
+           lcd.print(umidMin);
+           lcd.setCursor(0,1);
+           lcd.print("umidMax:");
+           lcd.print(umidMax);
      
     }
 
-  }
-  
-  if ((millis() - tempoAgora) > 3000) {
-    tempoAgora = millis(); // Atualiza tempo só uma vez
-
-    //VERIFICA TEMPERATURA
-    if (temperatura < tempMin) {
-      abaixoTemp = true;
-    }else{
-       abaixoTemp = false; 
-    }
-    if(temperatura > tempMax){
-       acimaTemp = true;
-    }else{
-      acimaTemp = false;
-    }
-
-    //VERIFICA UMIDADE
-    if (umidade < umidMin) {
-       abaixoUmid = true;
-    }else{
-       abaixoUmid = false; 
-    }
-    if(umidade > umidMax){
-       acimaUmid = true;
-    }else{
-      acimaUmid = false;
-    }
-    
-    if (acimaUmid || acimaTemp) {
-      Serial.println("Alerta de limite excedido:");
-        lcd.clear(); // <- Adicionado
-      if (acimaTemp) {
-        lcd.setCursor(0,0);
-        lcd.print("!TEMP acima!");
-      }
-      if (acimaUmid) {
-        lcd.setCursor(0,1);
-        lcd.print("!UMID acima!");
-      }
-      digitalWrite(LED_ACIMA, HIGH);
-    }else{
-      digitalWrite(LED_ACIMA, LOW);
-    }
-
-    if (abaixoUmid || abaixoTemp){
-        lcd.clear(); // <- Adicionado
-      if (abaixoUmid){
-        lcd.setCursor(0,1);
-        lcd.print("!UMID abaixo!");        
-      }
-      if (abaixoTemp){
-        lcd.setCursor(0,0);
-        lcd.print("!TEMP abaixo!");
-      }
-      digitalWrite(LED_ABAIXO, HIGH);
-     } else {
-      digitalWrite(LED_ABAIXO, LOW);
-    }
-
-    // Validação do sensor
-    if (isnan(temperatura) || isnan(umidade)) {
-      Serial.println("Falha na leitura do sensor DHT!");
-    }
+  }else{
+      if ((millis() - tempoAgora) > 3000) {
+        tempoAgora = millis(); // Atualiza tempo só uma vez
+          //VERIFICA TEMPERATURA
+          if (temperatura < tempMin) {
+            abaixoTemp = true;
+          }else{
+             abaixoTemp = false; 
+          }
+          if(temperatura > tempMax){
+             acimaTemp = true;
+          }else{
+            acimaTemp = false;
+          }
+      
+          //VERIFICA UMIDADE
+          if (umidade < umidMin) {
+             abaixoUmid = true;
+          }else{
+             abaixoUmid = false; 
+          }
+          if(umidade > umidMax){
+             acimaUmid = true;
+          }else{
+            acimaUmid = false;
+          }
+          
+          if (acimaUmid || acimaTemp) {
+            Serial.println("Alerta de limite excedido:");
+              lcd.clear(); // <- Adicionado
+            if (acimaTemp) {
+              lcd.setCursor(0,0);
+              lcd.print("!TEMP acima!");
+            }
+            if (acimaUmid) {
+              lcd.setCursor(0,1);
+              lcd.print("!UMID acima!");
+            }
+            digitalWrite(LED_ACIMA, HIGH);
+          }else{
+            digitalWrite(LED_ACIMA, LOW);
+          }
+      
+          if (abaixoUmid || abaixoTemp){
+              lcd.clear(); // <- Adicionado
+            if (abaixoUmid){
+              lcd.setCursor(0,1);
+              lcd.print("!UMID abaixo!");        
+            }
+            if (abaixoTemp){
+              lcd.setCursor(0,0);
+              lcd.print("!TEMP abaixo!");
+            }
+            digitalWrite(LED_ABAIXO, HIGH);
+           } else {
+            digitalWrite(LED_ABAIXO, LOW);
+          }
+      
+          // Validação do sensor
+          if (isnan(temperatura) || isnan(umidade)) {
+            Serial.println("Falha na leitura do sensor DHT!");
+          }
+        } 
   }
 }
 
