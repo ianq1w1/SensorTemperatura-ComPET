@@ -8,6 +8,8 @@
 #define LED_ACIMA 10
 #define CHAVE_PIN 2
 #define CHAVE_AJUSTE 14
+#define CHAVE_TEMP 16
+#define CHAVE_UMID 15
 #define DHTPIN 6 //Pino conectado ao DHT22
 #define DHTTYPE DHT22
 
@@ -67,7 +69,9 @@ void setup() {
   pinMode(LED_ACIMA, OUTPUT);
   pinMode(CHAVE_PIN, INPUT_PULLUP);
   pinMode(CHAVE_AJUSTE, INPUT_PULLUP);
-  
+  pinMode(CHAVE_TEMP, INPUT_PULLUP);
+  pinMode(CHAVE_UMID, INPUT_PULLUP);
+    
   Serial.begin(9600);
   dht.begin();
   lcd.begin(16, 2);
@@ -111,18 +115,25 @@ void Proccess1(){
   if(digitalRead(CHAVE_AJUSTE) == LOW){
      pot1Val = analogRead(pot1);
      pot2Val = analogRead(pot2);
-//adicionar um if para chave se é temperatura ou umidade
-
-     tempMin = (analogRead(pot2)/1023.0) * 120 - 40;
-     tempMax = (analogRead(pot1)/1023.0) * 120 - 40;
-      
+     
+    if(digitalRead(CHAVE_TEMP) == LOW){
+       tempMin = (analogRead(pot2)/1023.0) * 120 - 40;
+       tempMax = (analogRead(pot1)/1023.0) * 120 - 40; 
+          Serial.println("temperatura minima"); 
+           Serial.println(tempMin);
+           Serial.println("temperatura maxima");
+           Serial.println(tempMax);
+    
+    }else if(digitalRead(CHAVE_UMID) == LOW){
      umidMin = (analogRead(pot2)/1023.0) * 100 - 0; 
      umidMax = (analogRead(pot1)/1023.0) * 100 - 0;
+          Serial.println("umidade minima"); 
+           Serial.println(umidMin);
+           Serial.println("umidade maxima");
+           Serial.println(umidMax);
+     
+    }
 
-     Serial.println("temperatura minima"); 
-     Serial.println(tempMin);
-     Serial.println("umidade minima");
-     Serial.println(umidMin);
   }
   
   if ((millis() - tempoAgora) > 3000) {

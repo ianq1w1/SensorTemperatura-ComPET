@@ -5,10 +5,8 @@
 <item itemtype="SerialPort" CircId="SerialPort-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-148,-332" rotation="0" hflip="1" vflip="1" label="SerialPort-9" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Subcircuit" CircId="Mega-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-180,-288" rotation="0" hflip="1" vflip="1" label="Mega-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="Projeto-Temperatura-Umidade-Com-LCD_V2.ino.mega.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
-
-<item itemtype="SerialPort" CircId="SerialPort-29" mainComp="false" Show_id="false" Show_Val="false" Pos="72,-300" rotation="0" hflip="1" vflip="1" label="SerialPort-29" idLabPos="-20,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" Auto="false" Port="tnt6" Baudrate="9600 _Bd" DataBits="8 _bits" StopBits="1 _bits" SerialMon="false" />
 
 <item itemtype="Dht22" CircId="Dht22-30" mainComp="false" Show_id="false" Show_Val="false" Pos="100,-36" rotation="0" hflip="1" vflip="1" label="Dht22-30" idLabPos="-28,-32" labelrot="0" valLabPos="-16,20" valLabRot="0" DHT22="DHT22" TempInc="12 °C" HumiInc="5 _%" />
 
@@ -34,11 +32,11 @@
 
 <item itemtype="Ground" CircId="Ground-60" mainComp="false" Show_id="false" Show_Val="false" Pos="120,-156" rotation="-90" hflip="1" vflip="1" label="Ground-60" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Potentiometer" CircId="Potentiometer-83" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="188,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MIN" idLabPos="-31.2398,-46.626" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="847 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-83" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="188,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MIN" idLabPos="-23.4955,-55.661" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="566 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Potentiometer" CircId="Potentiometer-84" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="72,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MAX" idLabPos="-50.4551,-51.9268" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="1000 Ω" Slider="false" Scale="1" />
+<item itemtype="Potentiometer" CircId="Potentiometer-84" mainComp="false" ShowProp="Resistance" Show_id="true" Show_Val="true" Pos="72,-224" rotation="0" hflip="1" vflip="1" label="ADJ-MAX" idLabPos="-53.0365,-55.7989" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="800 Ω" Slider="false" Scale="1" />
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-85" mainComp="false" Show_id="false" Show_Val="false" Pos="108,-260" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-85" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-85" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="108,-260" rotation="90" hflip="1" vflip="1" label="Fixed Voltage-85" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
 <item itemtype="Ground" CircId="Ground-92" mainComp="false" Show_id="false" Show_Val="false" Pos="28,-236" rotation="0" hflip="1" vflip="1" label="Ground-92" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
@@ -72,10 +70,6 @@
 
 <item itemtype="Connector" uid="connector-67" startpinid="Mega-18-0" endpinid="SerialPort-9-pin0" pointList="-172,-168,-220,-168,-220,-340,-188,-340" />
 
-<item itemtype="Connector" uid="connector-68" startpinid="SerialPort-29-pin1" endpinid="Mega-18-18" pointList="32,-292,-140,-292,-140,-216,-172,-216" />
-
-<item itemtype="Connector" uid="connector-69" startpinid="SerialPort-29-pin0" endpinid="Mega-18-19" pointList="32,-308,-152,-308,-152,-224,-172,-224" />
-
 <item itemtype="Connector" uid="connector-70" startpinid="Dht22-30-inPin" endpinid="Mega-18-6" pointList="64,-40,64,-120,-172,-120" />
 
 <item itemtype="Connector" uid="connector-71" startpinid="Resistor-55-rPin" endpinid="Led-32-rPin" pointList="-320,0,-320,-12" />
@@ -102,7 +96,7 @@
 
 <item itemtype="Connector" uid="connector-82" startpinid="Switch-58-pinP0" endpinid="Ground-60-Gnd" pointList="68,-156,104,-156" />
 
-<item itemtype="Connector" uid="Connector-88" startpinid="Fixed Voltage-85-outnod" endpinid="Node-90-0" pointList="124,-260,124,-224" />
+<item itemtype="Connector" uid="Connector-88" startpinid="Fixed Voltage-85-outnod" endpinid="Node-90-0" pointList="108,-244,108,-224,124,-224" />
 
 <item itemtype="Connector" uid="Connector-89" startpinid="Potentiometer-84-PinB" endpinid="Node-90-1" pointList="88,-224,124,-224" />
 
