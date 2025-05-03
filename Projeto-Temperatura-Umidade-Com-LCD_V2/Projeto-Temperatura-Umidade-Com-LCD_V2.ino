@@ -112,42 +112,46 @@ void Proccess0(){
 void Proccess1(){
 
   if(digitalRead(CHAVE_AJUSTE) == LOW){
-     pot1Val = analogRead(pot1);
-     pot2Val = analogRead(pot2);
-     
-    if(digitalRead(CHAVE_TEMP) == LOW){
-       tempMin = (analogRead(pot2)/1023.0) * 120 - 40;
-       tempMax = (analogRead(pot1)/1023.0) * 120 - 40; 
-            Serial.println("temperatura minima"); 
-           Serial.println(tempMin);
-           Serial.println("temperatura maxima");
-           Serial.println(tempMax);
-           
-           lcd.clear();
-           lcd.setCursor(0,0);
-           lcd.print("tempMin:");
-           lcd.print(tempMin);
-           lcd.setCursor(0,1);
-           lcd.print("tempMax:");
-           lcd.print(tempMax);    
-           
-    }else if(digitalRead(CHAVE_UMID) == LOW){
-     umidMin = (analogRead(pot2)/1023.0) * 100 - 0; 
-     umidMax = (analogRead(pot1)/1023.0) * 100 - 0;
-          Serial.println("umidade minima"); 
-           Serial.println(umidMin);
-           Serial.println("umidade maxima");
-           Serial.println(umidMax);
+      lcd.clear();
 
-           lcd.clear();
-           lcd.setCursor(0,0);
-           lcd.print("umidMin:");
-           lcd.print(umidMin);
-           lcd.setCursor(0,1);
-           lcd.print("umidMax:");
-           lcd.print(umidMax);
-     
-    }
+   while(digitalRead(CHAVE_AJUSTE) == LOW){
+         pot1Val = analogRead(pot1);
+         pot2Val = analogRead(pot2);
+
+      if(digitalRead(CHAVE_TEMP) == LOW){
+         tempMin = (analogRead(pot2Val)/1023.0) * 120 - 40;
+         tempMax = (analogRead(pot1Val)/1023.0) * 120 - 40; 
+              Serial.println("temperatura minima"); 
+             Serial.println(tempMin);
+             Serial.println("temperatura maxima");
+             Serial.println(tempMax);
+             
+             //lcd.clear();
+             lcd.setCursor(0,0);
+             lcd.print("tempMin:");
+             lcd.print(tempMin,1);
+             lcd.setCursor(0,1);
+             lcd.print("tempMax:");
+             lcd.print(tempMax,1);    
+             
+      }else if(digitalRead(CHAVE_UMID) == LOW){
+       umidMin = (analogRead(pot2Val)/1023.0) * 100 - 0; 
+       umidMax = (analogRead(pot1Val)/1023.0) * 100 - 0;
+            Serial.println("umidade minima"); 
+             Serial.println(umidMin);
+             Serial.println("umidade maxima");
+             Serial.println(umidMax);
+  
+             //lcd.clear();
+             lcd.setCursor(0,0);
+             lcd.print("umidMin:");
+             lcd.print(umidMin,1);
+             lcd.setCursor(0,1);
+             lcd.print("umidMax:");
+             lcd.print(umidMax,1);
+       
+      }
+   }
 
   }else{
       if ((millis() - tempoAgora) > 3000) {
