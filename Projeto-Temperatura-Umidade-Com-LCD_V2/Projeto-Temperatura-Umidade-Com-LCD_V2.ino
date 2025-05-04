@@ -80,7 +80,7 @@ void setup() {
   lcd.clear();
 
   Timer1.initialize(1000000);
-  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, FALLING);
+  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, CHANGE);
   tempoAgora = millis();
   sensorTempoAgora = millis();
 }
@@ -235,16 +235,16 @@ void Proccess2(){
   Mensagem.concat(ValorY);
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat("Temperatura Maxima:");
-  Mensagem.concat(String(tempMax));
+  Mensagem.concat(String(acimaTemp));
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat("Temperatura Minima:");
-  Mensagem.concat(String(tempMin));
+  Mensagem.concat(String(abaixoTemp));
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat("Umidade Maxima:");
-  Mensagem.concat(String(umidMax));
+  Mensagem.concat(String(acimaUmid));
   Mensagem.concat(TokenFinalizadoralor);  
   Mensagem.concat("Umidade Minima:");
-  Mensagem.concat(String(umidMin));
+  Mensagem.concat(String(abaixoUmid));
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat(TokenFinal);
 
@@ -253,6 +253,7 @@ void Proccess2(){
 
 void loop() {
   //delay(200);
+
   if(startSystem == true){
     Timer1.attachInterrupt(handler);
     
