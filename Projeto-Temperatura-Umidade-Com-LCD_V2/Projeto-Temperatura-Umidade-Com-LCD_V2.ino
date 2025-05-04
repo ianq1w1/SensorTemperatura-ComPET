@@ -118,6 +118,9 @@ void Proccess1(){
          pot1Val = analogRead(pot1);
          pot2Val = analogRead(pot2);
 
+         Serial.println(pot1Val);
+         
+
       if(digitalRead(CHAVE_TEMP) == LOW){
          tempMin = (pot2Val/1023.0) * 120 - 40;
          tempMax = (pot1Val/1023.0) * 120 - 40; 
@@ -222,7 +225,6 @@ void Proccess1(){
   
 }
 
-
 void Proccess2(){
   Mensagem="";
   Mensagem.concat(TokenInicial);
@@ -231,6 +233,18 @@ void Proccess2(){
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat(IdY);
   Mensagem.concat(ValorY);
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat("Temperatura Maxima:");
+  Mensagem.concat(String(tempMax));
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat("Temperatura Minima:");
+  Mensagem.concat(String(tempMin));
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat("Umidade Maxima:");
+  Mensagem.concat(String(umidMax));
+  Mensagem.concat(TokenFinalizadoralor);  
+  Mensagem.concat("Umidade Minima:");
+  Mensagem.concat(String(umidMin));
   Mensagem.concat(TokenFinalizadoralor);
   Mensagem.concat(TokenFinal);
 
