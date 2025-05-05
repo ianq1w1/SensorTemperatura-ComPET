@@ -80,7 +80,7 @@ void setup() {
   lcd.clear();
 
   Timer1.initialize(1000000);
-  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(CHAVE_PIN), handlerflag, FALLING);
   tempoAgora = millis();
   sensorTempoAgora = millis();
 }
@@ -234,26 +234,36 @@ void Proccess2(){
   Mensagem.concat(IdY);
   Mensagem.concat(ValorY);
   Mensagem.concat(TokenFinalizadoralor);
-  Mensagem.concat("Temperatura Maxima:");
+  Mensagem.concat(TokenFinal);
+  
+ Serial.println(Mensagem);
+  delay(200);
+   Mensagem="";
+   Mensagem.concat(TokenInicial);  
+  Mensagem.concat("TemperaturaMaxima:");
   Mensagem.concat(String(acimaTemp));
   Mensagem.concat(TokenFinalizadoralor);
-  Mensagem.concat("Temperatura Minima:");
+  Mensagem.concat("TemperaturaMinima:");
   Mensagem.concat(String(abaixoTemp));
   Mensagem.concat(TokenFinalizadoralor);
-  Mensagem.concat("Umidade Maxima:");
+  Mensagem.concat(TokenFinal);
+Serial.println(Mensagem);
+  delay(200);
+   Mensagem="";
+   Mensagem.concat(TokenInicial);  
+  Mensagem.concat("UmidadeaMaxima:");
   Mensagem.concat(String(acimaUmid));
-  Mensagem.concat(TokenFinalizadoralor);  
-  Mensagem.concat("Umidade Minima:");
+  Mensagem.concat(TokenFinalizadoralor);
+  Mensagem.concat("UmidadeMinima:");
   Mensagem.concat(String(abaixoUmid));
   Mensagem.concat(TokenFinalizadoralor);
-  Mensagem.concat(TokenFinal);
+  Mensagem.concat(TokenFinal);  
+Serial.println(Mensagem);
 
-  Serial.println(Mensagem);
 }
 
 void loop() {
   //delay(200);
-
   if(startSystem == true){
     Timer1.attachInterrupt(handler);
     
